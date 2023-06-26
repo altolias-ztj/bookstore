@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookstore.admin.mapper.BookMapper">
+	<select id="updateStockAndSalesAmount">
+		update books set book_stock = book_stock-#{count}, book_sales_amount = book_sales_amount + #{count}
+		where book_id = #{bookId}
+	</select>
+
+	<select id="getByBookId" resultType="com.bookstore.common.entity.Book">
+		select * from where book_id=#{bookId}
+	</select>
+</mapper>

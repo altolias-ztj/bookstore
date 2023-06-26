@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookstore.admin.mapper.RoleMapper">
+	<resultMap id="roleMap" type="com.bookstore.common.entity.Role">
+		<collection property="permissions" select="com.bookstore.admin.mapper.PermissionMapper.getByRoleId"
+					column="role_id"></collection>
+	</resultMap>
+
+	<select id="getByRoleId" resultMap="roleMap">
+		select * from roles where role_id = #{id}
+	</select>
+
+	<insert id="add">
+		insert into role_permission(role_id,permission_id) values(#{rid},#{pid})
+	</insert>
+
+	<delete id="del">
+		delete from role_permission where role_id=#{rid} and permission_id=#{pid}
+	</delete>
+</mapper>

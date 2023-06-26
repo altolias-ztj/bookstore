@@ -11,6 +11,13 @@ spring:
       time-to-live: 1800
   session:
     store-type: redis
+  rabbitmq:
+    password: guest
+    username: guest
+    port: 5672
+    host: localhost
+  main:
+    allow-circular-references: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -20,3 +27,31 @@ woniu:
     expire: 30
     canContinue: 60
     secret: woniu
+  wx:
+    appid: wxee3f566267096a5e
+    secret: 0e44ac6f92944e4fb1e528ef5f548896
+    mchid: 1629812166
+    serialno: 3756D97E1842AEEDD90BD21DF48A26F6C5388A60
+    key: abcdefghijklmnopqrstuvwxyz123456
+  wxurls:
+    tokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=SECRET
+    telUrl: https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token=ACCESS_TOKEN
+    createOrderUrl: https://api.mch.weixin.qq.com/v3/pay/transactions/jsapi
+    openidUrl: https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=CODE
+  order:
+    maxWait: 5
+  qiniu:
+    AccessKey: VshBrq1Gkw8pWUjg4tUQLw0qFbrGBKZNStbk6dVi
+    SecretKey: DBxFYppZ2tdsAQR0I42A4tOLGf_Dz_tXWr5owv3G
+    Bucket: wnbooks
+  mp:
+    tokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=SECRET
+    appId: wx2f23e4a88160f40d
+    appSecret: 30d7141135844cebcdbf07360d6f8f1d
+    ticketUrl: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN
+    ticket_expire: 5
+minio:
+  ak: H7AhLmJodkPYiMVa
+  sk: itvyT6kCCMkiXZ32RFg3VEVJKpQBxudC
+  ep: http://localhost:9000
+  bucketName: bucket1
